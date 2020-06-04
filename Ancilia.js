@@ -76,9 +76,7 @@ class Ancilia {
     // ICX Interface ============================================================
     icxBalance(address) {
         // Assume ICX has 18 decimals
-        const digits = IconConverter.toBigNumber('10').exponentiatedBy(18)
-        const balance = this.__getIconService().getBalance(address).execute()
-        return balance.dividedBy(digits);
+        return this.__getIconService().getBalance(address).execute()
     }
 
     // IRC2 Token Interface ============================================================
@@ -107,9 +105,20 @@ class Ancilia {
     convertUnitToDecimals(amount, decimals) {
         return IconConverter.toBigNumber(amount).multipliedBy(IconConverter.toBigNumber('10').exponentiatedBy(decimals))
     }
+
+    convertDecimalsToUnit(amount, decimals) {
+        return IconConverter.toBigNumber(amount).dividedBy(IconConverter.toBigNumber('10').exponentiatedBy(decimals))
+    }
+
     convertUnitToDecimalsEx(amount, contract) {
         this.irc2Decimals(contract).then(decimals => {
-            return IconConverter.toBigNumber(amount).multipliedBy(IconConverter.toBigNumber('10').exponentiatedBy(decimals))
+            return convertUnitToDecimals(amount, decimals)
+        })
+    }
+
+    convertDecimalsToUnitEx(amount, contract) {
+        this.irc2Decimals(contract).then(decimals => {
+            return convertDecimalsToUnit(amount, decimals)
         })
     }
 
@@ -372,5 +381,3 @@ class Ancilia {
         return iconNetworksInfo[network]
     }
 }
-
-// const api = new API(SCORE_NETWORK, SCORE_ENDPOINT)
