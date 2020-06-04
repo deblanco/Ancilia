@@ -30,41 +30,37 @@ layout: default
 
 <body>
     <div id="network">
-        <p>Network Name : <span id="name"></span></p>
-        <p>Network API : <span id="api"></span></p>
-        <p>Network Tracker : <span id="tracker"></span></p>
+        <p><b>Network Name : </b><span id="name"></span></p>
+        <p><b>Network API : </b><span id="api"></span></p>
+        <p><b>Network Tracker : </b><span id="tracker"></span></p>
     </div>
 
     <hr />
 
     <div id="token">
-        <p>
-            Token contract : <input class="icon-address" id="contract" type="text" />
+        <p><b>Token contract : </b><input class="icon-address" id="contract" type="text" />
             <button id="refresh" onClick="tokenRefresh()">Refresh</button>
         </p>
-        <p>Token Name : <span id="name"></span></p>
-        <p>Token Symbol : <span id="symbol"></span></p>
-        <p>Token Decimals : <span id="decimals"></span></p>
+        <p><b>Token Name : </b><span id="name"></span></p>
+        <p><b>Token Symbol : </b><span id="symbol"></span></p>
+        <p><b>Token Decimals : </b><span id="decimals"></span></p>
     </div>
 
     <hr />
 
     <div id="account">
-        <p>
-            Account address : <span id="address"></span>
+        <p><b>Account address : </b><span id="address"></span>
             <button id="login" onClick="onLogin()">Login</button>
         </p>
 
-        <p>Account ICX Balance : <span id="icxBalance"></span> ICX</p>
-        <p>Account IWIN Balance : <span id="iwinBalance"></span> IWIN</p>
-        <p>Destination address : <input class="icon-address" id="destination" type="text" /></p>
-        <p>
-            Amount ICX : <input class="token-amount" id="icx-amount" type="number" />
+        <p><b>Account ICX Balance :</b> <span id="icxBalance"></span> ICX</p>
+        <p><b>Account IWIN Balance :</b> <span id="iwinBalance"></span> IWIN</p>
+        <p><b>Destination address : </b><input class="icon-address" id="destination" type="text" /></p>
+        <p><b>Amount ICX : </b><input class="token-amount" id="icx-amount" type="number" />
             <button id="send-icx" onClick="sendIcx()">Send</button>
             <span id="icx-txhash"></span>
         </p>
-        <p>
-            Amount IWIN : <input class="token-amount" id="iwin-amount" type="number" />
+        <p><b>Amount IWIN : </b><input class="token-amount" id="iwin-amount" type="number" />
             <button id="send-iwin" onClick="sendIwin()">Send</button>
             <span id="iwin-txhash"></span>
         </p>
